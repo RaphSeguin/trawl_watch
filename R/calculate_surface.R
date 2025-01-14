@@ -106,8 +106,6 @@ calculate_surface <- function(fishing_effort_clean, gear_widths){
   #        y = "Ouverture des filets (mètres)"))
   # 
   # ggsave(taille_filet, file = "taille_filet.jpg", width = 297, height = 210, units = "mm", dpi = 300)
-  
-  print(paste("Durant cette période, la surface chalutée selon l'AIS était de: ", round(sum(fishing_effort_width$swept_area_km2),2), "km^2"))
 
 }
 
