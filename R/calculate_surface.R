@@ -1,4 +1,4 @@
-calculate_surface <- function(fishing_effort_clean){
+calculate_surface <- function(fishing_effort_clean, gear_widths){
   
   #Gear widths from 
   # #https://academic.oup.com/icesjms/article/73/suppl_1/i27/2573989
