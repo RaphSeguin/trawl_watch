@@ -6,21 +6,23 @@ library(plumber)
 
 # Use devtools for sourcing R scripts online
 library(devtools)
-source_url("https://raw.githubusercontent.com/RaphSeguin/trawl_watch/main/R/download_GFW_data.R")
-source_url("https://raw.githubusercontent.com/RaphSeguin/trawl_watch/main/R/calculate_surface.R")
+
+# Paths to the R scripts inside the container
+calculate_surface_path <- "/app/R/calculate_surface.R"
+download_GFW_data_path <- "/app/R/download_GFW_data.R"
 
 #* Run the script and return the daily trawled surface
 #* @get /run
 function() {
-  
-  # Use dedicated GFW API key
-  key <- gfw_auth()
   
   # Load necessary libraries
   library(tidyverse)
   library(sf)
   library(gfwr)
   library(janitor)
+
+  # Use dedicated GFW API key
+  key <- gfw_auth()
   
   # Load datasets directly from GitHub
   url <- "https://raw.githubusercontent.com/RaphSeguin/trawl_watch/main/output/France_MPA_dissolved.Rdata"
